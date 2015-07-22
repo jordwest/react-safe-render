@@ -36,7 +36,9 @@ module.exports = function safeRender (React, config) {
       };
     }
 
-    wrap('render');
+    wrap('render', function() {
+      return React.createElement('span', {}, 'Uh oh, there was an error rendering this component');
+    });
     wrap('componentWillMount');
     wrap('componentDidMount');
     wrap('componentWillReceiveProps');
